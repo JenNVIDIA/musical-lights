@@ -172,9 +172,7 @@ class WebData:
             async with session.request(method='POST', url=authUrl, headers=headers, data=form) as resp:
                 if resp.status == 200:
                     json = await resp.json()
-                    carb.log_info(f"json: {json}")
                     self._auth_token = json["access_token"]
-                    carb.log_info(f"token: {self._auth_token}")
                 else:
                     carb.log_info(f"Response Status: {resp.status}")
                     
